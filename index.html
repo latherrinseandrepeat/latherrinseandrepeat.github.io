@@ -1,30 +1,316 @@
+```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Lather, Rinse & Repeat</title>
+  <meta charset="UTF-8" />
+  <title>[HEADER]</title>
+
+  <!-- Google Fonts for Inter & Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
+    /* Custom font placeholder: replace src with your Bernoru font file */
+    @font-face {
+      font-family: "Bernoru";
+      src: url("bernoru.woff2") format("woff2");
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    :root {
+      --color-header: #2A3664;
+      --color-subheader: #4A5BA1;
+      --color-dark-bg: #55525C;
+      --color-bg: #F8F8FA;
+      --color-divider: #8A94A6;
+      --color-accent1: #A591EF;
+      --color-accent2: #F28C82;
+      --color-text: #000000;
+      --color-secondary-text: #C5A66A;
+      --color-cta: #7A56D6;
+      --color-url: #3B6BF9;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      text-align: center;
-      background: #f9f9f9;
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
     }
-    h1 {
-      color: #222;
-      font-size: 36px;
-      margin-bottom: 10px;
+
+    a {
+      color: var(--color-url);
+      text-decoration: none;
+      font-family: "Poppins", system-ui, sans-serif;
+      font-weight: 600;
     }
-    p {
-      color: #555;
-      font-size: 18px;
-      max-width: 500px;
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: 1120px;
       margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    /* Typography helpers */
+    .brand-header,
+    h1, h2 {
+      font-family: "Bernoru", system-ui, sans-serif;
+      text-transform: lowercase;
+      letter-spacing: 0.13em; /* 130 letter spacing */
+      color: var(--color-header);
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .subheader {
+      font-family: "Inter", system-ui, sans-serif;
+      font-weight: 700;
+      text-transform: lowercase;
+      letter-spacing: -0.055em; /* -55 letter spacing */
+      color: var(--color-subheader);
+      font-size: 1.25rem;
+      margin-bottom: 16px;
+    }
+
+    .secondary-text {
+      font-family: "Inter", system-ui, sans-serif;
+      font-weight: 300;
+      letter-spacing: -0.02em; /* -20 letter spacing */
+      color: var(--color-secondary-text);
+      font-size: 0.95rem;
+    }
+
+    .cta-button {
+      font-family: "Inter", system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 12px 28px;
+      border-radius: 999px;
+      border: none;
+      background-color: var(--color-cta);
+      color: #ffffff;
+      cursor: pointer;
+      display: inline-block;
+      text-decoration: none;
+      margin-top: 20px;
+    }
+
+    .cta-button:hover {
+      opacity: 0.9;
+    }
+
+    /* Layout */
+    header.site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 48px;
+    }
+
+    .brand-header {
+      font-size: 2.25rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-family: "Inter", system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      color: var(--color-header);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 72px;
+    }
+
+    .hero-photo {
+      background-color: #ffffff;
+      border-radius: 24px;
+      border: 1px solid var(--color-divider);
+      min-height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Inter", system-ui, sans-serif;
+      font-size: 0.95rem;
+      color: var(--color-divider);
+    }
+
+    .hero-photo span {
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px dashed var(--color-divider);
+    }
+
+    section {
+      margin-bottom: 64px;
+    }
+
+    .section-card {
+      background-color: #ffffff;
+      border-radius: 24px;
+      border: 1px solid var(--color-divider);
+      padding: 32px 28px;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 32px;
+      margin-top: 32px;
+    }
+
+    footer {
+      border-top: 1px solid var(--color-divider);
+      padding-top: 24px;
+      font-size: 0.9rem;
+      font-family: "Inter", system-ui, sans-serif;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    @media (max-width: 840px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+
+      header.site-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Lather, Rinse & Repeat</h1>
-  <p>Your site is now live on GitHub Pages. You can customize this text anytime!</p>
+  <div class="page">
+    <!-- Top Navigation / Logo -->
+    <header class="site-header">
+      <div class="brand-header">[HEADER]</div>
+      <nav class="nav-links">
+        <a href="#about">[URL]</a>
+        <a href="#services">[URL]</a>
+        <a href="#contact">[URL]</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <h1>[HEADER]</h1>
+          <div class="subheader">[SUBHEADER]</div>
+          <p>[BODY TEXT]</p>
+          <p class="secondary-text" style="margin-top:12px;">[SECOND TEXT]</p>
+          <a href="[URL]" class="cta-button">[CALL TO ACTION]</a>
+        </div>
+
+        <div class="hero-photo">
+          <span>[PHOTO]</span>
+        </div>
+      </section>
+
+      <!-- ABOUT / FEATURE SECTION -->
+      <section id="about">
+        <div class="section-card">
+          <h2>[HEADER]</h2>
+          <div class="subheader">[SUBHEADER]</div>
+          <div class="two-column">
+            <div>
+              <p>[BODY TEXT]</p>
+              <p class="secondary-text" style="margin-top:10px;">[SECOND TEXT]</p>
+            </div>
+            <div>
+              <p>[BODY TEXT]</p>
+              <p class="secondary-text" style="margin-top:10px;">[SECOND TEXT]</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES / LIST SECTION -->
+      <section id="services">
+        <div class="section-card">
+          <h2>[HEADER]</h2>
+          <div class="subheader">[SUBHEADER]</div>
+          <div class="two-column">
+            <div>
+              <h3 class="subheader" style="font-size:1.05rem;">[SUBHEADER]</h3>
+              <p>[BODY TEXT]</p>
+              <p class="secondary-text" style="margin-top:6px;">[SECOND TEXT]</p>
+            </div>
+            <div>
+              <h3 class="subheader" style="font-size:1.05rem;">[SUBHEADER]</h3>
+              <p>[BODY TEXT]</p>
+              <p class="secondary-text" style="margin-top:6px;">[SECOND TEXT]</p>
+            </div>
+          </div>
+          <a href="[URL]" class="cta-button" style="margin-top:28px;">[CALL TO ACTION]</a>
+        </div>
+      </section>
+
+      <!-- CONTACT SECTION -->
+      <section id="contact">
+        <div class="section-card">
+          <h2>[HEADER]</h2>
+          <div class="subheader">[SUBHEADER]</div>
+          <p>[BODY TEXT]</p>
+          <p class="secondary-text" style="margin-top:10px;">[SECOND TEXT]</p>
+
+          <div style="margin-top:24px;">
+            <p class="secondary-text">Email:</p>
+            <a href="mailto:[EMAIL]">[EMAIL]</a>
+          </div>
+
+          <div style="margin-top:16px;">
+            <p class="secondary-text">Website:</p>
+            <a href="[URL]">[URL]</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <span class="secondary-text">© [SECOND TEXT]</span>
+      <span>
+        <a href="mailto:[EMAIL]">[EMAIL]</a> ·
+        <a href="[URL]">[URL]</a>
+      </span>
+    </footer>
+  </div>
 </body>
 </html>
+```
